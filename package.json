@@ -1,0 +1,17 @@
+{
+  "name": "NWJS-hms",
+  "main": "index.html",
+  "window": {
+    "show": false,
+    "position": "center",
+    "width": 1122,
+    "height": 623,
+    "toolbar": true
+  },
+  "scripts": {
+    "start": "nw ."
+  },
+  "devDependencies": {
+    "mysql": "^2.12.0"
+  }
+}
