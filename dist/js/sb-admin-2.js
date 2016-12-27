@@ -1,10 +1,5 @@
-/*!
- * Start Bootstrap - SB Admin 2 v3.3.7+1 (http://startbootstrap.com/template-overviews/sb-admin-2)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
 $(function() {
-    $('#side-menu').metisMenu();
+    //$('#side-menu').metisMenu();
 });
 
 //Loads the correct sidebar on window load,
@@ -12,19 +7,57 @@ $(function() {
 // Sets the min-height of #page-wrapper to window size
 $(function() {
     
+    //nw.Window.get().showDevTools();
+
+    var NOOFPAITENT = "#no-of-paitent", TODAYSACTIVITY = "#todays-activity", TOTALCREDITBAL = "#total-credit-bal";
+
+    var mysql = require('mysql');
+    var connection = mysql.createConnection({
+        host: CONFIG.HOST,
+        user: CONFIG.USER,
+        password: CONFIG.PASSWORD,
+        database: CONFIG.DATABASE
+    });
+
+    connection.connect();
+
+    var todayActQuery = "SELECT count(id) as TodaysActivity FROM hms.activity WHERE activitydate like '12/25/2016';";
+    connection.query(todayActQuery, function(err, rows, fields) {
+        try {
+            if(rows) {
+                $(TODAYSACTIVITY).html(rows[0].TodaysActivity);
+            }
+            if(err){
+                alert("Error In DashBoard");
+                alert(err);
+                console.error(err);
+            }
+        } catch (e) {
+            alert("error "+e);
+        }
+    });
+
+    var noOfPaitentQuery = "SELECT count(id) as NoOfPaitent, sum(pbalance) as totalCredit FROM hms.customer;";
+    connection.query(noOfPaitentQuery, function(err, rows, fields) {
+        try {
+            if(rows) {
+                $(NOOFPAITENT).html(rows[0].NoOfPaitent);
+                $(TOTALCREDITBAL).html(rows[0].totalCredit);
+            }
+            if(err){
+                alert("Error In DashBoard");
+                alert(err);
+                console.error(err);
+            }
+        } catch (e) {
+            alert("error "+e);
+        }
+    });
 
 
-
-
-
-
-
-
-
-
-
-
-
+    window.onunload = function() {
+        connection.end();
+    };
     
     $(window).bind("load resize", function() {
         var topOffset = 50;

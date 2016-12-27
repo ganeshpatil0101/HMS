@@ -12,6 +12,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="../vendor/bootstrap/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
@@ -87,20 +89,68 @@
                             Basic Form Elements
                         </div> -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
+                       
                                     <form role="form">
-                                        <div class="form-group">
-                                            <label>Paitent Name</label>
-                                            <input class="form-control" name="paitent-name" >
-                                           <!--  <p class="help-block">Example block-level help text here.</p> -->
+                                        <!-- <div class="row form-group">
+                                            <label>Paitent Type</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="paitenttype" id="old-paitent" value="oldpaitent" checked>Old Paitent
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="paitenttype" id="new-paitent" value="newpaitent">New Paitent
+                                            </label>
+                                        </div> -->
+
+                                        <div class="row form-group">
+                                            <label>Full Name</label>
+                                            <input name="paitent-id" type="hidden" >
+                                            <input type="text" class="form-control" name="paitent-name" placeholder="Search names..." autocomplete="off" >
                                         </div>
+
+                                        <div class="row form-group">
+                                            <div class="col-lg-6 col-md-4" style="padding-left: 0;padding-right: 0;">
+                                                <label>Mobile Number </label>
+                                                <input type="text" class="form-control" name="mobile" >
+                                            </div>
+                                            <div class="col-lg-6 col-md-4" style="padding-left: 0;padding-right: 0;">
+                                                <label>Previous Balance </label>
+                                                <input readonly type="text" class="form-control" name="previous-balance" value="0" >    
+                                            </div>    
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <div class="col-lg-6 col-md-4" style="padding-left: 0;padding-right: 0;">
+                                            <label>Paid Amount </label>
+                                            <input type="text" class="form-control" name="paid-amount" >
+                                            </div>
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <div class="col-lg-6 col-md-4" style="padding-left: 0;padding-right: 0;">
+                                                <div class="input-group date">
+                                                <label>Date </label>
+                                                  <input type="text" name="activity-date" class="form-control">
+                                                  <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <label>Payment Type</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="payment-type" id="credit" value="credit" checked>Credit
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="payment-type" id="paid" value="cashpaid" >Cash Paid
+                                            </label>
+                                            
+                                        </div>
+
                                         <button type="button" id="save" class="btn btn-default">Save</button>
                                         <button type="reset" class="btn btn-default">Reset </button>
                                     </form>
-                                </div>
-                            </div>
-                            <!-- /.row (nested) -->
+                                
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -121,13 +171,21 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
+    <script src="../vendor/bootstrap/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="../vendor/bootstrap/js/bootstrap-typeahead.js"></script>
+    
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+    <script src="../config.js"></script>
+    
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <script src="../dist/js/addentry.js"></script>
+
+    
 
 </body>
 

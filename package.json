@@ -12,6 +12,7 @@
     "start": "nw ."
   },
   "devDependencies": {
-    "mysql": "^2.12.0"
+    "mysql": "^2.12.0",
+    "nw": "0.14.7-sdk"
   }
 }
